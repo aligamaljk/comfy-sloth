@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom"
 import "./Auth.scss"
-import { useSelector, useDispatch } from "react-redux"
+import { useDispatch } from "react-redux"
 import { useState } from "react"
 import { doSignInWithEmailAndPassword, doSignInWithGoogle } from "../../Firebase/auth"
 import { SetToken } from "../../LocalStorage/LocalStorage"
@@ -8,9 +8,7 @@ import { addUser } from "../../rtk/Slice/SliceUser"
 import { toast } from "react-toastify"
 const Login = () => {
   const navigate = useNavigate()
-  const user = useSelector((state) => state.user)
   const dispatch = useDispatch()
-  console.log(user)
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const signIn = async (e) =>{
@@ -58,7 +56,6 @@ const Login = () => {
               onClick={signInWithGoogle}
             >Sign In With Google</button>
             <div className="text-group">
-            <p className="text-signup">Forgot password? <Link to="/forget-password">Forget Password</Link></p>
             <p className="text-signup"> Dont have an account? <Link to="/signup">Signup</Link></p>
             </div>
           </form>
