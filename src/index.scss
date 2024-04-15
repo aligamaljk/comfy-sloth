@@ -1,0 +1,128 @@
+*,::after,::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+ul{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+}
+body{
+    color: #102a42;
+    color: var(--clr-grey-1);
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+    font-size: .875rem;
+    line-height: 1.5;
+    margin: 0;
+    background: #f1f5f8;
+    // min-height: 100vh;
+}
+@media screen and (min-width: 800px){
+    body, h5 {
+        font-size: 1rem;
+    }
+}
+.section-center {
+    margin: 0 auto;
+    max-width: 1170px;
+    width: 90vw;
+}
+@media screen and (min-width: 992px){
+    .section-center {
+        width: 95vw ;
+    }
+}
+.container{
+    margin: 0 20px;
+    padding: 0.20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.section{
+    padding: 5rem 0;
+}
+.bg-two{
+    background: #f1f5f8;
+}
+.bg-three{
+    background: #eaded7;
+}
+.btn-show{
+    background: #ab7a5f;
+    border-color: transparent;
+    border-radius: 0.25rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,.2);
+    color: #eaded7;
+    cursor: pointer;
+    display: inline-block;
+    font-size: .875rem;
+    font-weight: 400;
+    letter-spacing: .1rem;
+    padding: 0.5rem 1.5rem;
+    text-transform: uppercase;
+    transition: all .3s linear;
+    &:hover{
+        background: #c5a491;
+        color: #453227;
+    }
+}
+
+.header-about{
+    background: #eaded7;
+    width: 100%;
+    min-height: 20vh;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    color: #453227;
+    // margin-bottom: 100px;
+    padding: 20px 30px;
+    .title-about{
+        font-size: 2rem;
+        font-weight: 700;
+        margin-right: 5px;
+        text-transform: capitalize;
+        letter-spacing: 2px;
+        color: #795744;
+        transition: 0.3s ease;
+        &:hover{
+            color: #453227;
+        }
+    }
+    .sup-title-about{
+        font-size: 2rem;
+        font-weight: 700;
+        text-transform: capitalize;
+        letter-spacing: 2px;
+    }
+}
+.page-loading{
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 92.5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 62626665;
+    background: #fff;
+}
+.loading{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 3px solid #ab7a5f;
+    border-top: 3px solid transparent;
+    animation: loading 1s linear infinite;
+    @keyframes loading{
+        to{
+            transform: rotate(360deg);
+        } 
+    }
+}
+
+.Toastify__toast-container {
+    top: 75px !important;
+}

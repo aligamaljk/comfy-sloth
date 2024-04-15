@@ -1,0 +1,20 @@
+.footer{
+    height: 5rem;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    background: #222;
+    text-align: center;
+    color: #fff;
+    span{
+        color: #ab7a5f;
+    }
+    @media (min-width: 776px){
+        .footer {
+            flex-direction: row;
+        }
+    }
+}
