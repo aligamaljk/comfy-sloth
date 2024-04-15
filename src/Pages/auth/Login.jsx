@@ -55,6 +55,7 @@ const Login = () => {
             
             <button className="btn-signup"
               onClick={signInWithGoogle}
+              type="button"
             >Sign In With Google</button>
             <div className="text-group">
             <p className="text-signup"> Dont have an account? <Link to="/signup">Signup</Link></p>
