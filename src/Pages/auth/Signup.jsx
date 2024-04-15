@@ -10,6 +10,7 @@ import { addUser } from "../../rtk/Slice/SliceUser"
 const Signup = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    const [loading, setLoading] = useState(false);
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [passwordCon, setPasswordCon] = useState("")
@@ -18,10 +19,12 @@ const Signup = () => {
         if(password !== passwordCon){
           toast.error("Passwords Do Not Match")
         }else{
+          setLoading(true)
           doCreateUserWithEmailAndPassword(email, password)
             .then((userCredential) => {
               // Signed in
               const user = userCredential.user;
+              setLoading(false)
               SetToken(user.accessToken);
               dispatch(addUser(user.uid));
               toast.success('Login Success');
@@ -29,6 +32,7 @@ const Signup = () => {
             })
             .catch((error) => {
               const errorMessage = error.message;
+              setLoading(false)
               toast.error(errorMessage);
             });
         }
@@ -51,7 +55,7 @@ const Signup = () => {
               <label htmlFor="password">Password Confirmation</label>
               <input type="password" id="password" required value={passwordCon} onChange={(e) => setPasswordCon(e.target.value )} />
             </div>
-            <button className="btn-signup" type="submit" >Signup</button>
+            <button className="btn-signup" type="submit" disabled={loading} >Signup</button>
             <p className="text-signup">Already have an account? <Link to="/login">Login</Link></p>
           </form>
         </div>

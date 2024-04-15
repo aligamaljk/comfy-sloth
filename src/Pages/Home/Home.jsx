@@ -5,13 +5,11 @@ import { NavLink } from "react-router-dom"
 import { TbSearch } from "react-icons/tb";
 import { GiNewspaper } from "react-icons/gi";
 import { useEffect, useState } from "react"
-// const products_url = "https://course-api.com/react-store-products"
 const products_url = 'https://www.course-api.com/react-store-products';
 import axios from "axios"
 const Home = () => {
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(true)
-    console.log(products);
     useEffect(() => {
         setLoading(true)
         const fetchProducts = async () => {
@@ -22,13 +20,6 @@ const Home = () => {
         }
         fetchProducts()
     }, [])
-    // if(loading){
-    //     return (
-    //         <main className="page-loading">
-    //             <div className="loading"></div>
-    //         </main>
-    //     )
-    // }
   return (
     <div className="home">
       <section className="section-content container">
