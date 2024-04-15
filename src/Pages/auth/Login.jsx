@@ -52,6 +52,7 @@ const Login = () => {
             </div>
             <button className="btn-signup" type="submit"
             >Login</button>
+            
             <button className="btn-signup"
               onClick={signInWithGoogle}
             >Sign In With Google</button>
