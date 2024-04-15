@@ -1,13 +1,15 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import "./Auth.scss"
 import { useState } from "react"
-import { useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { toast } from "react-toastify"
 import { doCreateUserWithEmailAndPassword } from "../../Firebase/auth"
+import { SetToken } from "../../LocalStorage/LocalStorage"
+import { addUser } from "../../rtk/Slice/SliceUser"
 // localStorage.clear()
 const Signup = () => {
-    const {user, isLoading} = useSelector((state) => state.user)
-    console.log(user,"user");
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [passwordCon, setPasswordCon] = useState("")
@@ -20,12 +22,14 @@ const Signup = () => {
             .then((userCredential) => {
               // Signed in
               const user = userCredential.user;
-              console.log(user);
+              SetToken(user.accessToken);
+              dispatch(addUser(user.uid));
+              toast.success('Login Success');
+              navigate('/');
             })
             .catch((error) => {
-              const errorCode = error.code;
               const errorMessage = error.message;
-              console.log(errorCode, errorMessage);
+              toast.error(errorMessage);
             });
         }
     }
@@ -47,7 +51,7 @@ const Signup = () => {
               <label htmlFor="password">Password Confirmation</label>
               <input type="password" id="password" required value={passwordCon} onChange={(e) => setPasswordCon(e.target.value )} />
             </div>
-            <button className="btn-signup" type="submit" disabled={isLoading} >Signup</button>
+            <button className="btn-signup" type="submit" >Signup</button>
             <p className="text-signup">Already have an account? <Link to="/login">Login</Link></p>
           </form>
         </div>
