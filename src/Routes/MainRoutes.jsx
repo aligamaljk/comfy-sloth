@@ -11,7 +11,6 @@ import Signup from "../Pages/auth/Signup"
 import { GetToken } from "../LocalStorage/LocalStorage"
 
 const MainRoutes = () => {
-    //   const user = useSelector((state) => state.user);
     const routes = useRoutes([
       {
         path: '*',
