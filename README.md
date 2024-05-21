@@ -15,3 +15,7 @@
 -   vite
 
 
+## Performance
+
+  <img src="./public/Performance2.jpg" ></img>
+  <img src="./public/Performance1.jpg" ></img>
